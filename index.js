@@ -1,9 +1,9 @@
 import { fetch } from 'cross-fetch';
-import { print } from 'graphql';
+import { print, buildSchema } from 'graphql';
 import { wrapSchema } from '@graphql-tools/wrap';
 import gql from 'graphql-tag';
 
-const typeDefs = gql`
+const typeDefs = `
 #
 type Query {
   # Get a user by id
@@ -83,7 +83,7 @@ const executor = async ({ document, variables }) => {
 
 
 const schema =  wrapSchema({
-    schema: typeDefs,
+    schema: buildSchema(typeDefs),
     executor,
 });
 
