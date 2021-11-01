@@ -82,12 +82,12 @@ const executor = async ({ document, variables }) => {
 
 
 
-const schema =  wrapSchema({
+export default wrapSchema({
     schema: buildSchema(typeDefs),
     executor,
 });
 
-console.log(schema);
+
 
 
 
